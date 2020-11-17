@@ -1,5 +1,13 @@
 'bootstrap a windows machine'
 
+##Linux Environment
+knife bootstrap [ipaddress] -U [username] -P [password] -N [servername] 
+--bootstrap-install-command "sudo curl -s http://dump.dfl.nednet.co.za/oldies/archives/scripts/bootstrap.sh | sudo bash"
+
+##Windows Environment
+knife bootstrap  -o winrm [ipaddress] -U [username] -P [password] -N [servername] 
+--bootstrap-install-command "curl -s http://dump.dfl.nednet.co.za/oldies/archives/scripts/bootstrap.ps1 | powershell -Command Start-Process PowerShell -Verb RunAs"
+
 #Ohai
 'is a tool that captures details/attributes about a node'
 
@@ -80,7 +88,8 @@ should apply and the cookbooks required to execute that run list
 
 BOOTSTRAPPING A NODE
 'knife bootstrap IP_Address -U Username -P Password --SUDO -N NODE_NAME' ---> Applies to a Unix based machine/node
-'knife bootstrap windows winrm IP_Address -x Administrator -P super_secret_password' ---> for bootstraping a windows machine/node
+'knife bootstrap -o winrm IPADDRESS -x Administrator -P super_secret_password -N NODE_NAME' ---> for bootstraping a windows machine/node
+
 Note:: Port 
 
 
