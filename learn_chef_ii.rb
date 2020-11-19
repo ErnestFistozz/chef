@@ -6,7 +6,11 @@ knife bootstrap [ipaddress] -U [username] -P [password] -N [servername]
 
 ##Windows Environment
 knife bootstrap  -o winrm [ipaddress] -U [username] -P [password] -N [servername] 
---bootstrap-install-command "curl -s http://dump.dfl.nednet.co.za/oldies/archives/scripts/bootstrap.ps1 | powershell -Command Start-Process PowerShell -Verb RunAs"
+--bootstrap-install-command "curl -s http://dump.dfl.nednet.co.za/oldies/archives/scripts/bootstrap.ps1 | powershell -Command Start-Process PowerShell -Verb RunAs or powershell or cmd"
+
+
+knife bootstrap  -o winrm [ipaddress] -U [username] -P [password] -N [servername] 
+--bootstrap-install-command "curl -s http://dump.dfl.nednet.co.za/oldies/archives/scripts/bootstrap.ps1 | runas /noprofile /user:Administrator cmd or Start-Process -Verb RunAs cmd.exe "
 
 #Ohai
 'is a tool that captures details/attributes about a node'
@@ -90,8 +94,7 @@ BOOTSTRAPPING A NODE
 'knife bootstrap IP_Address -U Username -P Password --SUDO -N NODE_NAME' ---> Applies to a Unix based machine/node
 'knife bootstrap -o winrm IPADDRESS -x Administrator -P super_secret_password -N NODE_NAME' ---> for bootstraping a windows machine/node
 
-Note:: Port 
-
+Note:: WinRM HTTP port to attempt to connect to the remote WinRM endpoint - 5985
 
 Adding a cookbook to a runlist
 
@@ -195,13 +198,21 @@ knife node show NODE_NAME -a cloud
 you use:
 		node.default['COOKBOOK_NAME']['ATTRIBUTE_NAME'] instead of node['COOKBOOK_NAME']['ATTRIBUTE_NAME']
 
+#NOT chef related
+runas /user:admin username powershell
 
 
+#Creating a USER
+chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' -f PATH_FILE_NAME
 
+#Creating an organization
+chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
 
+'After installing chef server --> reconfigure the chef-server so all components can work together'
+chef-server-ctl reconfigure
 
-
-
+'Check status of reconfiguration'
+chef-server-ctl status
 
 
 
