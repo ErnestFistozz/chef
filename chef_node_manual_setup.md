@@ -56,3 +56,24 @@ b) Windows
 
 https://serverfault.com/questions/761167/how-to-manually-set-up-a-chef-node
 http://jtimberman.housepub.org/blog/2014/12/11/chef-12-fix-untrusted-self-sign-certs/
+
+winrm get winrm/config/client
+
+https://getchef.zendesk.com/hc/en-us/articles/203821644-What-do-all-these-public-and-private-keys-do-
+
+Install management console:
+
+chef-server-ctl install chef-manage
+chef-server-ctl reconfigure
+chef-manage-ctl reconfigure
+
+chef-server-ctl status
+
+knife bootstrap -o winrm CLIENTHOSTNAME -u ADMINWINUSER -P ADMINPASSWORD -VV
+
+https://discourse.chef.io/t/knife-bootstrap-windows-winrm-192-168-2-121-x-administrator-p-demo69-n-node2-example-com/10150/4
+
+
+
+
+
