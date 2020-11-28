@@ -10,7 +10,6 @@ https://b-ok.africa/book/5963174/a2b8c0
 https://b-ok.africa/book/2548625/2dd320
 https://b-ok.africa/book/459601/3a99b4
 https://b-ok.africa/book/5896803/3e09ec
-https://b-ok.africa/book/954360/1f5499
 https://b-ok.africa/book/1209046/69827d?dsource=recommend
 https://b-ok.africa/book/3525631/d17124?dsource=recommend
 https://b-ok.africa/book/465488/1e7a20
@@ -33,3 +32,7 @@ https://ubuntu.com/server/docs
 
 
 
+# Site to download books form
+
+https://www.dbooks.org/
+https://www.b-ok.org/
