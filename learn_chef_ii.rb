@@ -220,13 +220,6 @@ chef-server-ctl status
 
 
 
-SMSGW 
-
-
-
-
-
-
 
 
 
