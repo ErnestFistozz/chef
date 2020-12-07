@@ -214,6 +214,125 @@ chef-server-ctl reconfigure
 'Check status of reconfiguration'
 chef-server-ctl status
 
+#DELETING A NODE FROM A CHEF-SERVER
+'Two steps involved in deleting a client node'
+a) deleting the 'node object'
+		knife node delete NODE_NAME
+b) deleting the 'client object'
+		knife client delete NODE_NAME
+'Bootstrapping a node not only installs Chef on that node but also creates a client object on the Chef Server as well.
+The client object is used by the Chef Client to authenticate against the Chef Server on each run.
+Additionally to registering a client, a node object is created. The node object is the main data structure,
+which is used by the Chef Client to converge the node to the desired state.'
+
+#knife-playground plugin can delete both client and node object at one go
+	knife pg clientnode delete NODE_NAME
+
+#RUNNING CHEF CLIENT LOCALLY WITH COOKBOOK IN RUN_LIST
+	chef-client -z -o COOKBOOK_NAME
+
+# Book
+Chef: Powerful Infrastructure Automation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5284 9730 3715 7736
+03/26
+CCV 326
+
+ssh -i temp.key ec2-user@172.18.161.11
+
+temp.key
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAv+H9kfPaaUA0yrQI8NZCfb6w/m/8AW5k5wnj8QZyf5cmuFKV/Uj7MSKGJjVG
+vw++joGI8EMwUy5b2nDYMUM0+fqXPSIEtAKRbNoHjlSIPpGjsebCEGACncDOpZ11NdlJyoLK2XOb
+mfNde9gYGBCnX2fcZKyV3/+YMHEv9sSmU4QXBddhGE2mxS3IQkux2KIVGSb4yQX90jVGr4ngA8fX
+JodX7rmWX/Jpol6GdHRTdS2WJmrUUr6N4+2dzZOB04tAv45YQIM0AoiU4gNZ3Y2CzJGqFa1o4cie
+dZR00RLZO6eieWt/vSUulFhDN1MJSBdn7XwC4nzLZ3Owr4cCEoZsPQIDAQABAoIBAQCyAfb49Z5D
+UfsnqUk6E6rveH4+LKk+sqkM5NH/gZmq4BBdos/ef1v4wyxsObR9/x8qmOTu74XfRPyVc2Y8nTqC
+RYUUg4CVdmRu9P1ZfvY+BWI04fxasJb8vid24NIhuIiKRDfm7ycE9Q5em6QOfzSmf3WoN6t6eGU5
+W2fBp8Eda6pTvUQZtZbXmxdl2gRvxDvGF5SbR6loEZWJkt+BOyE8iv7tYF0e7a2hmT5Cdoo5KH2W
+CBwRghaotx7FhO/2vGojLwDIz94EVY5ggoT5qF05V9Q8pcJ7/FJwaui6VgATKGj1MgIkoMsizrOi
+7OVUobO/NP9ttpC0GkxVtIusP3nBAoGBAPBiAQP1nCqHvq9Pu9H5N4QtfJ9MYU2Ylcpq7x0fCE8+
+Q60UiZCgTpvk7FcuCcT5F+UMfvZm3a4QMh1N0O2LNdItaiv0MUfNenqB/6OO0C0H9MKJjpkv/5ys
+fy/2dQgQ373BncbotwNVhIEEVkBTNqUNpCcSUo4Gk8yzo2SncinpAoGBAMxZWA+20T+NBAy5ZF5j
+I8/ghtegWT9Jq3zLLPfHcHPf0z6v6l4XYNoL8ARLOLDlQXZ2Gj4i/s+7BEonTbxG3eeAuse9Y/Uq
+rGMpC3HxRicU1qa8GuhPo72lOCmBMhtFGpckcW94C17yFZPs78O4cTGgvTGsjRzi2FwsUyzFb2c1
+AoGBAMnzXC0KZFfq0U2RrBaczIJUgLWIQtshDP8Q1bBeiOmiQtMfRO9nboNUUSZw/C4qo2OAGw5B
+n44D90ZdQODAqsfX9bHVpq1POM3Bd5befZDHdV8Wl+GkzJfA593QrcPIAWD3T+lzS4YWi4qkrR2/
+i1IhYr6cixTc+8DnTqdacfQ5AoGASyRzaFveeBL/sToe+UJVceRrUTEKgGYzpBEGORridAmTIVMI
+yI6qM6P+H2YVs56pwsjM/5pYvsRTYH0xbZFVmgJRLI+tCQMnHtOB/OUu2cIk6Gz1LAXU/TCbBVAX
+v8VacMea2tV2wPQeESYoSH0zSn+D8pcz0LJtwv8dmrIDNB0CgYEAotjZZTFWA3TOi+2p25eqkjyF
+pYly/ZLX7qO+Swu3JZbUnqUKM1TPji8bfFyV+niv0L2+BUykZRvz8B/bpaczk6H59+g/VO/cg795
+T7odLeNpkTb3irCz0cJB5Yfc7ij1LDACwfaZTjAPMJ5HTGrauKM7+YY9Y2jqlPq2WPLhFOA=
+-----END RSA PRIVATE KEY-----
+
+
+
+
+Work.key
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAk6bmG9I7PXQMb6O+BUp8QvJ+MvAnTca8RHT/j7oWE2grgtTimHDNFaIptIB9
+E1tvN0F5YAhEWD9FoDswhYPdav8PbePCp8EOoyCRgyO7RaICv2tt+gMPamjn1RY8fnQy+4y4b+7O
+sM5/eeeMsVz/WU/vYzEyj+mgvOmJEpc2+DbQeIWXfD+1gyZyctvjNcb9VyHftcsKW1CjoalNsozN
+L2Ht6JUMJg/ySMqdYNkaDQB68ljJh4gyA6MW6qv7sxQUZOip3KYluw0fdzPyP/NDyUhTp/i2M9Bg
+h0lY8EBGqPbS649Jr/NtHR5gvcCzr2LVw3BpGz917x6DPtglDw3cIQIDAQABAoIBAQCKbjvncZ9g
+6mCOerI5O7BtA/UVxNrUrLLua9L+6bSw1UWWEAmyam+dDMCVHrIlZ+BJqfUl+Bo7snaQ122SgCMj
+oabRnGxv4yzZ/Drw/JsjmdWBqjMd56iYV2qj+YkV9dOmzDRPnVHjqncRz+m0kEBHeA40rXd+PcgZ
+1cpRx7wd0blaIShMMt9wFKwrK5yGNlYa3bq6Cqexllq4Zw+473IF4I6SUaGS+uXK+LwSPeYGFciA
+lu5LtNgCcIb8gQXToa4RdZelo7r5HYHX+lm0glVYM93s4HYuuK3SS3DLlIhhePzL7uW5mrXkZMU6
+qJqLUkJ+5N5ElxhwblYaCbQy1aMBAoGBAM2QTvhqbiKMHPMmGinhnfcWZuTohK47VVHUxwaIUnW/
+I/wn4xRoyY1WLB75PfClLroqhCsfvNdvzuFGKDEMKXtK7kZafxMB0m0vsWof/w4tkpHMR/Avd73h
+c16yubmjOBB4+eaF4JeovUCoY4QMu55o5qAUMBdDBKcb3hyrDXapAoGBALfhFjJat6TZ/RBOxjEL
+8/n/puhe5Jei/3wRxaEb7qrgo/xflYDceJI4Z29G0RLj8gYEJUjqrDlEFPdPHs4doJzJxJ71Llp7
+ZeGaeGihsgGIzmFPtNPAuNfuk2tA9AK02D+aLqdf3kXNEAHWeiVWGtWfM/xrDD/CdGS55qh2F7y5
+AoGAIBZknVZPtsjURAgwkVUMiWNP0G+TNndAjDOAlb510LdzcIrxYWAyBgPrgzI4vvWp45l7ZBfi
+LGbhjjybTXyuhPZfV1ANAfSI2k5VjVFNSPNIK8YNfKqMMHGexqtzXkziFYAs0hUXx9SpJgyi7Bvo
+tYN+bIJ6N0dY1JT/CM6SnXECgYAL4dy4VkplubxzsFN4WehjMFUN0Qv+jIbr8o4N0itDGY8fQOH9
+WMHl2QU+GJpsGRTLtLrgEmIctTyRmqhH83wshZFSIE/lgvHbeUrsn/5LwRZtDWSHBn4rXfxiwujB
+wAP1YDZBlJ1db1nodH6iKQVE5qvKVPSOrjctRyITosX36QKBgQCP5yY9UhSCAIM6svxzrWisEj43
+tlKFiNQfHz1V9HEeXzmduaKWe4IvC8qU+ZZzhyxDOpidfN28+cj8JLSnOjXepIiCOwTISzz1mjab
+SIXQWcmJ+l4B+s3MJ0/igX5F7XeK8ICHPj36zD5u8nMF3iJoYxpB/DB7we28cw5bowjE5g==
+-----END RSA PRIVATE KEY-----
+
+
+c368875f3add5417023bf1ac0035f1a81e1d34c2
+
+
+
+
+
+https://dev.azure.com/Nedbank-Limited/
+
+
+
+
+
+
+
+
+
 
 
 

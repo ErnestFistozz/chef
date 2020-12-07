@@ -1,3 +1,9 @@
+# Potential Books
+	Learning-Terraform by Jude Zhu
+	Learn Terraform The Hard Way
+	Terraform: From Beginner To Master: With Examples In AWS
+
+
 # Terraform definition
 
 you rely on it to take care of the details while you articulate the end state you want.
@@ -12,8 +18,6 @@ think about modeling these complex relationships. Terraform does it for you`.
 ## Declarative 
 
 Declarative plans are ones in which you specify outcomes.
-
-
 
 ## Infrastructure as Code (IaC) 
 “Infrastructure as Code” (IaC) enables us to describe our infrastructure and 	applications in source code. This enables us to treat our infrastructure like we treat our applications and take advantage of development practices and tools.
@@ -43,8 +47,6 @@ $terraform plan
 $terraform apply
 $terraform destroy
 ```
-
-
 
 `When Terraform runs inside a directory it will load any Terraform configuration files. Any non-configuration files are ignored and Terraform will not recurse into any sub-directories. Each file is loaded in alphabetical order, and the contents of each configuration file are appended into one configuration.`
 
