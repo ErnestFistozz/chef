@@ -34,7 +34,7 @@ Terraform ==> is instead focused on building and deploying infrastructure.
 
 ## Terraform Commands
 
-`init` -- 
+`init` -- is used to initialize a working directory containing Terraform configuration files
 `plan` -- Shows us what changes Terraform will make to our
 infrastructure.
 `apply` -- Applies changes to our infrastructure
@@ -42,7 +42,7 @@ infrastructure.
 `destroy` -- Destroys infrastructure built with Terraform.
 
 ```
-$terraform init
+$terraform init --> used to download the providers used in configuration files
 $terraform plan
 $terraform apply
 $terraform destroy
@@ -63,4 +63,44 @@ terraform/
 		production/
 		staging/
 ```
-Each directory could represent an environment, stack, or application in our organization
+Each directory could represent an environment, stack, or application in our organization.
+Terraform files are written in the HashiCorp Configuration Language (HCL) and suffixed .tf or tf.json. USE .tf extension preferrably
+
+### Providers
+
+Providers connect Terraform to the infrastructure you want to manage—for
+example, AWS, AZURE, VSphere.
+They provide configuration like connection details and authentication credentials
+
+Providers are not shipped with Terraform since Terraform 0.10. In order to download the providers you’re using in your environment you need to run the `terraform init` command to install any required providers.
+
+#### Syntax
+
+provider "PROVIDER_NAME" {
+		KEY = VALUE  
+}
+PROVIDER_NAME --> provider offered by terraform
+The KEY is a parameter of the provider --> look it up within terraform documentation
+
+
+### Resources
+
+Resources are the bread and butter of Terraform. They represent the infrastructure components you want to manage: ``hosts, networks, firewalls, DNS entries, and many more ``
+
+#### Syntax
+
+resource "RESOURCE_NAME" "NAME" {
+	KEY = VALUE # they KEY is
+}
+
+RESOURCE_NAME --> associated to a PROVIDER, offered by terraform
+KEY --> parameter of resource, look it up within terraform documentation
+NAME ---> user defined name. The name of the resource should generally describe what the resource is or does.
+
+NOTE: 'The combination of type and name must be unique in your configuration'
+
+Example: General Syntax of resource
+
+RESOURCE_NAME "PROVIDER_RESOURCE-TYPE" "NAME" {
+	
+}
