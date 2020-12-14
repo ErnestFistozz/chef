@@ -16,7 +16,6 @@ https://b-ok.africa/book/465488/1e7a20
 https://b-ok.africa/book/808138/0df849
 https://b-ok.africa/book/890924/015ac9
 https://b-ok.africa/book/684849/eb9c17
-https://stackoverflow.com/questions/25505146/how-to-copy-files-between-two-nodes-using-ansible
 
 
 https://b-ok.africa/book/2735407/4d74d2

@@ -104,3 +104,19 @@ Example: General Syntax of resource
 RESOURCE_NAME "PROVIDER_RESOURCE-TYPE" "NAME" {
 	
 }
+
+system local machine,
+thumbprint
+add user to certificate
+
+User [IIS AppPool\\AppPool Name] via AppPool identity
+
+store name and store location
+
+App Pool recycling
+
+[11:52 AM] Hoosain, Q. (Qasim)
+    Cert Store - Personal
+
+
+
