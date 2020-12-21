@@ -101,22 +101,310 @@ NOTE: 'The combination of type and name must be unique in your configuration'
 
 Example: General Syntax of resource
 
-RESOURCE_NAME "PROVIDER_RESOURCE-TYPE" "NAME" {
+resource "PROVIDER_RESOURCE-TYPE" "RESOURCE_NAME" {
 	
 }
 
-system local machine,
-thumbprint
-add user to certificate
+using output of resource in another resource
 
-User [IIS AppPool\\AppPool Name] via AppPool identity
+PROVIDER_RESOURCE_TYPE.NAME.ATTRIBUTE_REFERENCE
 
-store name and store location
+Note: For AWS creating a AWS_INSTANCE attaches the instance to the default VPC
 
-App Pool recycling
+Order doesn't really matter to terraform since it uses the GRAPHQ to exermine the order of execution
 
-[11:52 AM] Hoosain, Q. (Qasim)
-    Cert Store - Personal
+For AZURE ~>VERSION 2.01 ~
+ provider needs to be defined with features block
+
+Example:
+provider "PROVIDER_NAME" {
+	
+	features {}
+}
+
+# VARIABLES
+
+variable "VARIABLE_NAME" {
+	type = VARIABLE_TYPE e.g string, integer, map, list
+	default = DEFAULT_VALUE, e.g "hello world"
+	description = "PURPOSE_OF_THIS_VARIABLE"
+}
+
+Preferrable define them in `terraform.tfvars` file or
+							`FILE_NAME.auto.tfvars` eg. 
+							foo.auto.tfvars or
+							`variables.tf`
+These files will be loaded
+
+## Local variables
+
+define them in a configuration file
+Syntax:
+
+locals{
+	VARIABLE_NAME = VALUE
+}
+
+Usage:
+local.VARIABLE_NAME or ${local.VARIABLE_NAME}
+
+### Setting variables
+a) define variables in ```variables.tf``` (don't set the default values)
+b) set the variable values in ```terraform.tfvars```
+c) use the variables in main configuration
+d) to set environment variables use `TF_VAR_VARIABLE-NAME`
+	Terraform will look for variables in the environment variables which start are prefixed with ``TF_VAR_``
+
+i) if you don't supply a default value, it will request you to pass it at runtime when you execute ``terraform apply``
+
+## Output VALUES or variables
+
+used for debugging, inspection and output data from modules
+
+Preferrable stored in `outputs.tf`
+
+Syntax:
+
+output "OUTPUT_VALUE_NAME"{
+	value = VALUE_OF_OUTPUT
+	description = "describe out value"
+	sentive = true/false --> enables outputting on the cli or not
+	depends_on = 
+
+}
 
 
+# Data Sources
 
+Allow you to retrive data from providers/resources --> think of it as an GET API
+
+Note: all resource have a data source
+
+data "RESOURCE_NAME" "DATA_NAME" {
+	KEY = PAIR
+	#optionally you can filter
+	filter = {
+		name = "CATERGORY: VALUE"
+		value = ["VALUE_1", "VALUE_2"]
+	}
+}
+
+using data retrieved
+
+data.RESOURCE_NAME.DATA_NAME
+
+
+# RESOURCE - META ARGUMENTS
+
+count  (INTEGER) --> how many resources should be created
+provisioner --> allows one to run commands against the infrastructure that has been created after its been 
+provisioned e.g shell command
+
+example : count
+
+resource "aws_instance" "machine_name"{
+	count = 2
+	# using count
+	count.index --> gives the current index (useful if not a lot of changes are required to resource)	
+}
+
+output "instance"{
+    # since we created two aws instances, we will iterate over the two
+    value = aws_instance.ec2-instance[*].ATTRIBUTE_REFERRENCE -->all
+    # OR
+    value = [for current_instance in aws_instance.ec2-instance  : current_instance.ATTRIBUTE_REFERRENCE ]
+}
+
+example : for_each
+
+resource "aws_instance" "machine_name"{
+	for_each" ={
+		prod = "t2.large"
+		dev = "t2.dev"
+	}
+	# 
+	each.value --> gives the current index (useful if not a lot of changes are required to resource)	
+}
+
+output "instance"{
+    // since we created two aws instances,
+    value = aws_instance.ec2-instance["KEY".ATTRIBUTE_REFERRENCE
+}
+
+NOTE: count and for_each cannot be used in the same RESOURCE
+NOTE: you can use the same provider in the same file but they must have alias
+
+Example:
+	provider "aws"{
+		region = "us-west-2"
+	}
+
+	provider "aws"{
+		alias = "east"
+		region = "us-east-1"
+	}
+
+using inside a resource
+
+resource "aws_instance" "east_instance"{
+	provider = aws.east --> referrence the alias 
+}
+
+
+# EXPRESSION
+
+a) Tenarry or short hand if-else statement
+locals {
+	KEY = VALUE
+}
+
+output{
+	VARIABLE = local.KEY === VALUE? TRUE_VALUE : FALSE_VALUE
+}
+
+b) HEDOX -- help with multine strings
+
+KEY = <<EOT or <<-EOT (IDENTIFY)
+	String 1 ...
+	string n
+	EOT
+c) IF -STATEMENTS AND FOR-LOOPS
+
+	testing_if = "hello %{if CONDITION}{result}%{else}result %{endif} "
+
+	testing_loop = <<EOT
+		%{for INDEX in CONDITION }
+			DO_SOMETHIN
+		%{endfor}
+	EOT
+
+
+# DYANMIC BLOCK
+
+locals {
+	ingress_rules = [
+		{
+			port = 443
+			description = "port 443"
+		},
+		{
+			port = 80
+			description = "Port 80"
+		}
+	]
+}
+
+resource "aws_security_group" "security_group"{
+	dynamic "RULE"{
+		for_each = local.ingress_rules
+		content  { --> data for block that we are creating dynamically
+			description = RULE.value.description (usually the  value has KEY-VALUE pair, but since its a list there is no key )
+			from_port = RULE.value.port
+			to_port = RULE.value.port
+		}
+	}
+}
+			basically we changed the below to the above
+
+ingress {
+	description = "port 443"
+	from_port = 443
+	to_port = 443
+	protocol = "tcp"
+	cdir_block = ["0.0.0.0/0"]
+}
+
+ingress {
+	description = "port 80"
+	from_port = 80
+	to_port = 80
+	protocol = "tcp"
+	cdir_block = ["0.0.0.0/0"]
+}
+
+# PROVISIONERs
+
+defined inside a resource
+
+a) local-exec provisioner
+
+local-exec --> will be ran locall from the actual machine we run terraform from
+only be called when the resource is created for the first time or on the destroy
+
+
+provisioner "local-exec" {
+	command = "echo ${self.public_id}"
+	on_failure = "continue" --> ran when the provisioner fails
+}
+
+b) file provisioner
+Allows you to create a file on our remote server or copy from local to remote server
+
+c) remote-exec 
+Allows to execute commands on the newly created machine
+
+provisioner "remote-exec" {
+	when = "destroyed" -->  only ran when destroying
+	command = "echo ${self.public_id}"
+	script = "" --> unfortuante cannot pass arguemnts
+	inline = [
+				"touch /"
+			]
+}
+for connection
+
+connection {
+	type = "ssh" or wirm
+	host = self.public_ip
+	user = "user to use to ssh as"
+	private_key = file(/path/to/private_key/key.pem)
+}
+
+# TERRAFORM MODULES
+Allow you to group multiple resources together in a form of a package
+i.e allows you to package resources as a group or package
+
+modules generally have 3 (three) files
+``` main.tf
+	variables.tf
+	output.tf
+```
+Syntax
+
+module "MODULE_NAME"{
+	source = "path/to/where/resources/are/defined"
+	VARIABLE = VALUE
+	...
+	VARIABLE_N = VALUE_N
+
+	# for terraform 0.13
+	``
+	you are allowed to use
+	cout  = 
+	for_each 
+	``
+}	
+
+Variables must be defined in the variables file or ``main.tf`` file in where the resources are defined.
+
+terraform {
+	required_version = ">= 0.12"
+}
+
+# WORKSPACE
+
+by default you have one state
+but with workspace, you have multiple set of states
+
+terraform workspace new WORKSPACE_NAME --> create new workspace
+terraform workspace list --> list all available workspace
+terraform workspace show --> show current workspace
+
+terraform workspace select WORKSPACE_NAME -- > switch or move from workspace
+
+terraform apply -var-file VARIABLE_FILE_NAME.tfvars
+
+### Out-Scope Learnings
+Attach webserver to load balancer using 
+
+resource "aws_elb"

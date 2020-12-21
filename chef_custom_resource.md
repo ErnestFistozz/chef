@@ -32,3 +32,10 @@ COOKBOOK-NAME_RESOURCE-NAME 'name' do
 end
 
 'Chef’s built-in file, service and package can be used inside the chef custom resource'
+
+
+winhttpcertcfg -g -a "IIS APPPOOL\${p:SiteName}" -c "LOCAL_MACHINE\Personal" -s ${p:ApplD} -i ${p:ApplD}.pfx
+
+icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\<path to certificate> /grant "IIS AppPool\${p:SiteName}":R
+
+icacls Cert:\LocalMachine\My\AP480569.pfx /grant "IIS AppPool\${p:component/SiteName}":R
