@@ -28,5 +28,25 @@ https://medium.com/@nZenitram/spinning-up-an-ec2-instance-ef7e81044dc4
 
 http://www.scmgalaxy.com/tutorials/provision-a-aws-ec2-vm-using-chef/
 
+https://github.com/jjasghar/chef-book
 
+https://jonnylangefeld.github.io/learning/Docker/How%2Bto%2BDocker.html
+
+## Important sites
+
+https://labs.play-with-k8s.com/
+
+https://training.play-with-kubernetes.com/
+
+http://dockerlabs.collabnix.com/
+
+https://training.play-with-docker.com/beginner-linux/
+
+https://training.play-with-docker.com/
+
+http://tutorials.jenkov.com/docker/index.html
+
+https://www.learnitguide.net/
+
+https://stackify.com/docker-tutorial/
 
