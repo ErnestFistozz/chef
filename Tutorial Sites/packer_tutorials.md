@@ -50,3 +50,7 @@ https://www.learnitguide.net/
 
 https://stackify.com/docker-tutorial/
 
+https://www.linode.com/docs/kubernetes/getting-started-with-kubernetes/
+
+https://semaphoreci.com/community/tutorials/introduction-to-chef
+
