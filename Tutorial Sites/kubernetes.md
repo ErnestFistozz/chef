@@ -80,7 +80,7 @@ https://docs.openshift.com/container-platform/4.5/welcome/index.html
 
 https://www.freecodecamp.org/news/the-kubernetes-handbook/
 
-
+https://github.com/Leverege/kubernetes-book
 
 
 

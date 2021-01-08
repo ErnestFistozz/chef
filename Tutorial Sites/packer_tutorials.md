@@ -63,4 +63,27 @@ https://www.linode.com/docs/applications/configuration-management/install-a-chef
 https://www.edureka.co/blog/what-is-puppet/?utm_source=quora&utm_medium=crosspost&utm_campaign=social-media-edureka-july-sk
 
 https://www.edureka.co/blog/what-is-chef/?utm_source=quora&utm_medium=crosspost&utm_campaign=social-media-edureka-july-sk
+https://github.com/liguohua-bigdata/kubernets-learn/tree/master/books
+
+# Terraform
+https://github.com/kevholditch/terraform-beginner-to-master-examples
+https://github.com/PacktPublishing/Learning-Ansible-2.X-Third-Edition
+
+https://github.com/Leverege/kubernetes-book
+
+## Chef cookbook structure
+
+https://www.thegeekstuff.com/2016/06/chef-cookbook-directory-structure/
+
+### Networking commands
+http://xahlee.info/linux/linux_networking_commands.html
+
+http://xahlee.info/mswin/Windows_networking.html
+https://www.dummies.com/programming/networking/network-basics-tcpip-protocol-suite/
+
+https://github.com/onek0708/ebook
+https://github.com/subhashdamodaran/bookcollection
+https://github.com/liguohua-bigdata/kubernets-learn
+
+https://github.com/prakashio/books-1
 
