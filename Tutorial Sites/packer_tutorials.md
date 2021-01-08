@@ -87,3 +87,4 @@ https://github.com/liguohua-bigdata/kubernets-learn
 
 https://github.com/prakashio/books-1
 
+https://github.com/dohsimpson/kubernetes-doc-pdf
