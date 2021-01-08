@@ -54,3 +54,13 @@ https://www.linode.com/docs/kubernetes/getting-started-with-kubernetes/
 
 https://semaphoreci.com/community/tutorials/introduction-to-chef
 
+https://semaphoreci.com/community/tutorials/introduction-to-chef
+
+https://linuxconfig.org/how-to-install-chef-server-workstation-and-chef-client-on-ubuntu-18-04
+
+https://www.linode.com/docs/applications/configuration-management/install-a-chef-server-workstation-on-ubuntu-18-04/
+
+https://www.edureka.co/blog/what-is-puppet/?utm_source=quora&utm_medium=crosspost&utm_campaign=social-media-edureka-july-sk
+
+https://www.edureka.co/blog/what-is-chef/?utm_source=quora&utm_medium=crosspost&utm_campaign=social-media-edureka-july-sk
+
