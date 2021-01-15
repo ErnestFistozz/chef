@@ -14,3 +14,6 @@ https://learnworthy.net/the-ultimate-guide-to-hacking-for-beginners/
 https://www.freecodecamp.org/news/the-ultimate-guide-to-python-from-beginner-to-intermediate-to-pro/
 
 https://www.terraform.io/docs/configuration/index.html
+
+
+https://www.softwaretestinghelp.com/ibm-urbancode-deploy-tutorial/
