@@ -20,3 +20,9 @@ https://www.softwaretestinghelp.com/ibm-urbancode-deploy-tutorial/
 
 # BOOKS
 https://github.com/subhashdamodaran/bookcollection
+
+https://www.softwaretestinghelp.com/ibm-urbancode-deploy-tutorial/
+https://www.ibm.com/support/knowledgecenter/SS4GSP_7.0.4/com.ibm.udeploy.doc/topics/comp_postprocess_examples.html#comp_postprocess_examples
+
+https://www.ibm.com/support/knowledgecenter/SS4GSP_7.0.5/com.ibm.udeploy.doc/topics/output_properties.html
+https://www.ibm.com/support/knowledgecenter/en/SS4GSP_6.2.0/com.ibm.udeploy.reference.doc/topics/ud_properties_using.html
