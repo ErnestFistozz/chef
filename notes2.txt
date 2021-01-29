@@ -1,0 +1,73 @@
+https://blog.ssdnodes.com/blog/step-by-step-ansible-guide/
+https://linuxhint.com/ansible-tutorial-beginners/
+https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+https://docs.ansible.com/ansible/latest/user_guide/playbooks.html#working-with-playbooks
+https://devopsideas.com/series/ansible-tutorial/
+https://linuxhint.com/begineers_guide_tutorial_ansible/
+https://www.edureka.co/blog/videos/ansible-tutorial/
+https://medium.com/@perwagnernielsen/ansible-tutorial-part-1-inventory-files-vagrant-and-remote-hosts-33a15b0185c0
+https://www.unixarena.com/2019/05/passing-variable-from-one-playbook-to-another-playbook-ansible.html/
+https://www.thegeeksearch.com/how-to-to-create-and-reference-variables-in-ansible-playbooks/
+https://www.thegeeksearch.com/how-to-structure-ansible-playbooks-with-roles/
+https://linuxbuz.com/linuxhowto/what-is-ansible-modules-and-how-to-use-it#:~:text=%20Working%20with%20Ansible%20Modules%20%201%20Setup,set%20or%20change%20the%20permissions%20and...%20More%20
+
+https://www.redhat.com/sysadmin/yaml-beginners
+
+https://www.tuono.com/blog/azure-cloud-automation-quickstart-series/?utm_source=linkedin&utm_medium=paidsocial&utm_campaign=2020-09-23-Blog-Azure-Qu
+ickstart&utm_content=darryl&utm_term=emea&hsa_acc=503715993&hsa_cam=611601314&hsa_grp=169642574&hsa_ad=114797484&hsa_net=linkedin&hsa_ver=3
+
+http://www.scmgalaxy.com/tutorials/run-ansible-adhoc-commands-or-playbook-in-local-mode/
+
+
+
+Kubernetes
+
+https://devopscurry.com/kubernetes-cheatsheet-for-beginners/
+
+
+
+
+SQL 
+https://www.windows-commandline.com/start-stop-service-command-line/
+https://www.makeuseof.com/tag/commands-manage-wireless-networks-windows/
+https://www.lifewire.com/net-command-2618094
+
+https://www.tothenew.com/blog/introduction-to-berkshelf/
+https://www.howtobuildsoftware.com/index.php/how-do/68j/chef-chef-recipe-berkshelf-berksfile-fatal-nomethoderror-undefined-method-unreachable-cookbook-for-nilnilclass
+
+https://cloudacademy.com/blog/berkshelf-manage-chef-cookbooks/
+https://cmdref.net/os/windows/command/index.html
+
+ACTUAL SQL
+https://cmdref.net/os/windows/command/index.html
+https://support.appliedi.net/kb/how-to-backup-mysql-databases-from-the-command-line-on-windows/
+https://www.fastwebhost.in/blog/how-to-backup-mysql-databases-via-command-line/
+https://serverguy.com/servers/how-to-backup-mysql-database/#:~:text=%20How%20to%20Backup%20MySQL%20Database%20from%20Commandline,database%20named%20ABC-database%20with%20this%20command%20More%20
+
+https://morgantechspace.com/2015/07/powershell-check-if-machine-is-up-or-down.html
+
+https://www.windows-commandline.com/xcopy-command-syntax-examples/#:~:text=If%20you%20want%20to%20copy%20a%20directory%20to,the%20%2FEXCLUDE%20switch.%20Xcopy%20%2FI%20Sourcedir%20Destdir%20%2FEXCLUDE%3Afilename
+
+https://www.conceptworld.com/blog/index.php/exclude-specific-folders-when-copying-files-in-windows-using-a-robocopy-alternative-replacement-tool/
+
+
+ANSIBLE COMMANDS
+https://www.ru-rocker.com/2016/11/19/how-to-build-custom-ansible-module/
+https://www.ansible.com/resources/webinars-training/writing-modules-for-ansible
+http://devopstechie.com/create-custom-ansible-module/
+http://devopstechie.com/create-custom-ansible-module/
+https://opensource.com/article/19/3/developing-ansible-modules
+https://opensource.com/article/19/9/must-know-ansible-modules
+https://www.coursehero.com/file/52737532/AnsibleWorkshopWApdf/
+
+
+Thos currently shows number of unit tests
+
+sh "dotnet test --logger 'trx;LogFileName=TestResults.trx' --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=\"${WORKSPACE}/${env.Test_Output}/coverage.xml\" \"${WORKSPACE}/${env.Test_Project}\""
+
+
+
+sh "dotnet test ${Test_Project_ApiTests} --logger \"trx;LogFileName=testresults.trx\" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+                        sh "dotnet test ${Test_Project_Domain} --logger \"trx;LogFileName=testresults.trx\" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+                        sh "dotnet test ${Test_Project_Resources} --logger \"trx;LogFileName=testresults.trx\" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+                        sh "dotnet test ${Test_Project_Shared} --logger \"trx;LogFileName=testresults.trx\" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"

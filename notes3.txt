@@ -1,0 +1,17 @@
+you want rancher to manager your kubernetes cluster
+you can install rancher on top of any kubernetes cluster
+EKS
+
+Rancher is running straight kubernetes but you can use ingress
+now provide access to all  Prometheaus components e.g grafana
+
+ANSIBLE
+https://linuxhandbook.com/ansible-ad-hoc/
+https://www.howtoforge.com/ansible-guide-ad-hoc-command/
+
+
+
+
+
+
+

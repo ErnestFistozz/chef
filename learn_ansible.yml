@@ -1,0 +1,105 @@
+ Control Host ---> The machine which has ansible installed / system where ansible commands are issued from
+ Managed Host ---> Managed machine / node
+
+ Invetory File
+  Lists which hosts/servers will receive commands from Control Host
+  The Invetory file can list individual hosts or group them 
+
+  #Example
+    1.2.3.4
+    5.6.7.8
+    [web]
+    1.2.3.4
+    5.6.7.8
+    [db]
+    10.11.12.14
+    www.google.com
+    [combined:children]
+    web
+    db
+
+#check if all hosts are discoverable
+
+'ansible all --list-hosts'
+
+#List the hosts by group
+ansible GROUP_NAME --list-hosts
+#Example:
+  ansible web --list-hosts
+
+Ad-hoc commands ---> in Ansible are merely those that perform 
+                      a single command across one or many hosts
+
+#Check if you have access and hosts are UP and RUNNING
+a) ansible GROUP_NAME -m ping
+b) ansible all -m ping
+c) ansible GROUP_NAME/all -m ping -u USER_NAME
+
+#Using the inventory file to check whether managed hosts are UP AND RUNNING
+#Useful when the INVENTORY_FILE is not in the default location
+
+d) ansible -i INVENTORY_FILE_NAME GROUP_NAME/all -m ping -u USER_NAME
+
+#LIST ANSIBLE MODULES
+ansible-doc -l
+
+#EXAMPLE OF AN ADHOC COMMAND
+ansible GROUP_NAME/all -b --become--user=root -m MODULE_NAME -a 'ARGUMENT' -u USER_NAME
+ansible testserver -b --become--user=root -m shell -a 'yum install nginx' -u USER_NAME
+
+a) -b ==> specifies/tells ansible to become another user
+b) -m ==> specifies module to be used
+c) -a ==> argument to be passed
+d) -u ==> user_name of user to connect via ssh
+
+#ALTERNATIVELY
+
+ansible webservers -b --become-user=root -m apt -a 'name=nginx state=present update_cache=true' -u ansadm
+
+#ANSIBLE PLAY AND PLAYBOOKS
+
+When you dispatch a job from a control host to a managed host using one an Ansible module, it is known as a task
+
+Play --> An Ansible play is a set of tasks that are run on one or more managed hosts. A play may include one or many different tasks,
+         and the most common way to execute a play is to use a playbook.
+
+Ansible Playbooks ---> are composed of one or more plays .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

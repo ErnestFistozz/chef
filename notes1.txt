@@ -1,0 +1,18 @@
+
+
+https://arunksingh16.medium.com/azure-devops-handbook-d6dcd82da1b7
+https://www.bmc.com/blogs/azure-devops/
+https://www.dotnettricks.com/learn/devops/introduction-to-azure-devops
+https://medium.com/edureka/azure-devops-cf755fb334ae
+https://intellipaat.com/blog/tutorial/microsoft-azure-tutorial/azure-devops-tutorial/
+https://medium.com/@afegbuaismaila/a-beginners-beginners-guide-to-google-cloud-platform-80f86aa29116
+https://www.cloudsavvyit.com/4898/a-beginners-guide-to-google-cloud-platform-gcp/
+https://www.edureka.co/blog/google-cloud-platform-tutorial/
+https://www.linode.com/docs/guides/beginners-guide-to-terraform/
+
+
+
+Terraform Cookbook
+terraform-best-practices
+Getting Started with Terraform, 2nd ed.
+
